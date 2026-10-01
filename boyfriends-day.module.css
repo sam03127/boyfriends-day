@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Parisienne&family=Caveat:wght@500;700&family=Gaegu:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Parisienne&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap');
+
+/* =========================================================
+   BOYFRIEND'S DAY — PREMIUM ROMANTIC THEME
+   ========================================================= */
 
 .app {
   --red: #d7262b;
@@ -6,253 +10,924 @@
   --gold: #c9a24b;
   --ink: #2b1b1b;
   --paper: #fbf4e9;
+
   min-height: 100vh;
   min-height: 100dvh;
+
   position: relative;
   overflow-x: hidden;
+
   color: var(--ink);
-  font-family: 'Gaegu', 'Caveat', cursive;
+
+  /* PREMIUM BODY FONT */
+  font-family: 'Inter', sans-serif;
+
   background-color: var(--paper);
+
   background-image:
-    radial-gradient(rgba(142, 27, 44, 0.06) 1px, transparent 1px),
-    radial-gradient(circle at 20% 10%, rgba(255, 200, 200, 0.35), transparent 40%),
-    radial-gradient(circle at 80% 90%, rgba(255, 210, 190, 0.35), transparent 45%);
-  background-size: 18px 18px, 100% 100%, 100% 100%;
+    radial-gradient(
+      rgba(142, 27, 44, 0.06) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(255, 200, 200, 0.35),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 90%,
+      rgba(255, 210, 190, 0.35),
+      transparent 45%
+    );
+
+  background-size:
+    18px 18px,
+    100% 100%,
+    100% 100%;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
 }
 
-.stage {
+
+/* =========================================================
+   GLOBAL TYPOGRAPHY
+   ========================================================= */
+
+.app * {
+  box-sizing: border-box;
+}
+
+.app h1,
+.app h2,
+.app h3,
+.app h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+.app button,
+.app input,
+.app textarea {
+  font-family: 'Inter', sans-serif;
+}
+
+.app p {
+  font-family: 'Inter', sans-serif;
+}
+
+::selection {
+  background: rgba(215, 38, 43, 0.18);
+  color: var(--deep);
+}
+
+
+/* =========================================================
+   MAIN WRAPPER
+   ========================================================= */
+
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   HERO / COVER
+   ========================================================= */
+
+.cover {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem 1.25rem;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.coverInner {
+  width: min(100%, 900px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
   position: relative;
   z-index: 2;
 }
 
-.page {
-  position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
-  box-sizing: border-box;
-  padding: 4.5rem 1.25rem 9rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  max-width: 1100px;
-  margin: 0 auto;
+.coverTitle {
+  margin: 0;
+
+  font-family: 'Parisienne', cursive;
+
+  font-size: clamp(4rem, 13vw, 8.5rem);
+
+  line-height: 0.95;
+
+  font-weight: 400;
+
+  color: var(--red);
+
+  text-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.8),
+    0 8px 25px rgba(142, 27, 44, 0.12);
+
+  letter-spacing: 0.01em;
 }
 
-/* ---------- decorations ---------- */
-.web { position: absolute; top: 0; left: 0; width: 72px; height: 72px; opacity: 0.85; }
-.star { width: 48px; height: 48px; animation: twinkle 2.6s ease-in-out infinite; }
-.topRight { position: absolute; top: 1rem; right: 1rem; }
-@keyframes twinkle { 50% { transform: rotate(18deg) scale(1.15); } }
+.coverSubtitle {
+  margin-top: 1rem;
 
-.garland { position: absolute; top: 0; bottom: 0; width: 70px; display: flex; gap: 6px; pointer-events: none; }
-.garlandLeft { left: 4px; }
-.garlandRight { right: 4px; flex-direction: row-reverse; }
-.garlandString {
-  display: flex; flex-direction: column; align-items: center; justify-content: space-around;
-  border-left: 1px solid rgba(43, 27, 27, 0.35);
-  padding-left: 0; transform-origin: top center;
-  animation: sway 3.5s ease-in-out infinite;
-}
-.garlandHeart { color: var(--red); font-size: 14px; margin-left: -8px; text-shadow: 0 2px 2px rgba(0,0,0,0.15); }
-@keyframes sway { 50% { transform: rotate(3deg); } }
+  font-family: 'Playfair Display', serif;
 
-.chibi {
-  position: absolute; width: 120px; height: 120px; object-fit: contain;
-  mix-blend-mode: multiply; animation: bob 2.8s ease-in-out infinite;
-  -webkit-mask-image: radial-gradient(circle, #000 55%, transparent 71%);
-  mask-image: radial-gradient(circle, #000 55%, transparent 71%);
-}
-.bottomLeft { left: 0.5rem; bottom: 0.5rem; }
-.bottomRight { right: 0.5rem; bottom: 0.5rem; }
-.bottomCenter { left: calc(50% - 75px); bottom: 1rem; width: 150px; height: 150px; }
-@keyframes bob { 50% { transform: translateY(-8px) rotate(-2deg); } }
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
 
-.floating { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
-.floating span {
-  position: absolute; bottom: -40px; color: rgba(215, 38, 43, 0.35);
-  animation-name: floatUp; animation-timing-function: linear; animation-iteration-count: infinite;
-  will-change: transform, opacity;
-}
-@keyframes floatUp {
-  0% { transform: translateY(0) rotate(0); opacity: 0; }
-  10% { opacity: 1; }
-  100% { transform: translateY(-110vh) rotate(30deg) translateX(30px); opacity: 0; }
+  font-weight: 500;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--deep);
 }
 
-.spider { width: 64px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25)); }
 
-/* ---------- premium 3D titles ---------- */
+/* =========================================================
+   TITLE
+   ========================================================= */
+
 .title {
-  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 800; color: var(--red);
-  font-size: clamp(2.2rem, 7vw, 3.8rem); margin: 0.5rem 0 0; text-align: center; line-height: 1.1;
+  font-family: 'Playfair Display', serif;
+
+  font-style: italic;
+
+  font-weight: 700;
+
+  color: var(--red);
+
+  font-size: clamp(2.2rem, 7vw, 3.8rem);
+
+  margin: 0.5rem 0 0;
+
+  text-align: center;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.025em;
+
   text-shadow:
     1px 1px 0 #fff6e8,
     2px 2px 0 rgba(201, 162, 75, 0.6),
-    3px 3px 4px rgba(142, 27, 44, 0.35);
+    3px 3px 4px rgba(142, 27, 44, 0.2);
 }
-.hint { margin: 0; font-size: 1.3rem; color: var(--deep); text-align: center; font-family: 'Caveat', cursive; }
-.notes { display: inline-block; animation: bob 1.6s ease-in-out infinite; }
+
+
+/* =========================================================
+   SUBTITLE / HINT
+   ========================================================= */
+
+.hint {
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.82rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  color: rgba(43, 27, 27, 0.58);
+
+  margin-top: 0.75rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 
 .pillBtn {
-  margin-top: 1rem; min-height: 48px; padding: 0.7rem 1.6rem; border-radius: 999px;
-  border: 2px solid var(--deep); background: var(--red); color: #fff;
-  font-family: 'Caveat', cursive; font-size: 1.45rem; cursor: pointer;
-  box-shadow: 0 5px 0 var(--deep); transition: transform 0.15s, box-shadow 0.15s;
-  position: relative; z-index: 3;
-}
-.pillBtn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 7px 0 var(--deep); }
-.pillBtn:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 2px 0 var(--deep); }
-.pillBtn:disabled { opacity: 0.55; cursor: not-allowed; }
+  border: 1px solid rgba(201, 162, 75, 0.6);
 
-/* ---------- cover ---------- */
-.cover { justify-content: center; }
-.coverTitle {
-  font-family: 'Parisienne', cursive; color: var(--red); margin: 0;
-  font-size: clamp(3rem, 12vw, 6.5rem); line-height: 1.15; text-align: center;
-  display: flex; flex-direction: column; perspective: 800px;
-}
-.line {
-  display: inline-block; transform-style: preserve-3d;
-  text-shadow:
-    1px 1px 0 #fff6e8,
-    2px 2px 0 rgba(201, 162, 75, 0.55),
-    4px 4px 2px rgba(142, 27, 44, 0.25),
-    6px 6px 10px rgba(142, 27, 44, 0.2);
-}
-.lt { display: inline-block; animation: beat 1.2s ease-in-out infinite; }
-@keyframes beat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.25); } 30% { transform: scale(1); } 45% { transform: scale(1.15); } }
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 246, 232, 0.9)
+    );
 
-/* ---------- layout ---------- */
-.split { width: 100%; display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
-@media (min-width: 768px) {
-  .split { grid-template-columns: 1fr 1fr; }
-  .page { padding-top: 5rem; }
-  .web { width: 100px; height: 100px; }
-  .chibi { width: 150px; height: 150px; }
-  .bottomCenter { width: 190px; height: 190px; left: calc(50% - 95px); }
+  color: var(--deep);
+
+  border-radius: 999px;
+
+  padding: 0.75rem 1.25rem;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.78rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px rgba(142, 27, 44, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
-/* ---------- letter ---------- */
+.pillBtn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(142, 27, 44, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.pillBtn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   CONTENT SECTIONS
+   ========================================================= */
+
+.section {
+  width: min(100%, 1100px);
+
+  margin: 0 auto;
+
+  padding:
+    clamp(3rem, 8vw, 6rem)
+    clamp(1rem, 4vw, 2rem);
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', serif;
+
+  font-size: clamp(2rem, 5vw, 3.4rem);
+
+  font-weight: 600;
+
+  text-align: center;
+
+  color: var(--deep);
+
+  letter-spacing: -0.025em;
+
+  margin: 0 0 0.75rem;
+}
+
+.sectionSubtitle {
+  max-width: 650px;
+
+  margin: 0 auto 2rem;
+
+  text-align: center;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+
+  color: rgba(43, 27, 27, 0.65);
+}
+
+
+/* =========================================================
+   LETTER
+   ========================================================= */
+
 .letter {
-  position: relative; background: #fffdf8; border: 3px solid var(--red); border-radius: 14px;
-  outline: 2px dashed rgba(215, 38, 43, 0.5); outline-offset: -12px;
-  padding: 2rem 1.6rem; box-shadow: 0 12px 30px rgba(142, 27, 44, 0.15);
-  background-image: repeating-linear-gradient(transparent 0 31px, rgba(142, 27, 44, 0.12) 31px 32px);
-}
-.letterHeart { position: absolute; top: -18px; left: calc(50% - 18px); font-size: 36px; color: var(--red); animation: beat 1.4s infinite; }
-.letterText { white-space: pre-wrap; margin: 0 0 0.8rem; font-size: 1.35rem; line-height: 32px; }
-.signoff { font-family: 'Parisienne', cursive; color: var(--red); font-size: 1.9rem; text-align: right; margin: 0.6rem 0 0; }
+  width: min(100%, 850px);
 
-.polaroids { position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 1rem 0; }
+  margin: 0 auto;
+
+  padding:
+    clamp(1.5rem, 5vw, 3.5rem);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.78),
+      rgba(255, 247, 237, 0.92)
+    );
+
+  border: 1px solid rgba(201, 162, 75, 0.25);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 60px rgba(75, 35, 35, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  position: relative;
+}
+
+.letterText {
+  font-family: 'Inter', sans-serif;
+
+  font-size: clamp(0.98rem, 2vw, 1.08rem);
+
+  line-height: 1.95;
+
+  color: rgba(43, 27, 27, 0.84);
+
+  letter-spacing: 0.005em;
+
+  margin: 0;
+}
+
+.signoff {
+  margin-top: 2rem;
+
+  font-family: 'Parisienne', cursive;
+
+  font-size: clamp(2rem, 5vw, 3rem);
+
+  color: var(--red);
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   POLAROID / PHOTO CARDS
+   ========================================================= */
+
 .polaroid {
-  position: relative; margin: 0; background: #fff; padding: 10px 10px 34px; width: 46%; max-width: 210px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.18);
-}
-.polaroid:nth-child(1) { transform: rotate(-6deg); }
-.polaroid:nth-child(2) { transform: rotate(5deg); }
-.polaroid:nth-child(3) { transform: rotate(-2deg); }
-.polaroid:hover { z-index: 2; transform: rotate(0) scale(1.06); transition: transform 0.25s; }
-.polaroid img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
-.polaroid figcaption { position: absolute; bottom: 6px; left: 0; right: 0; text-align: center; font-family: 'Caveat', cursive; font-size: 1.2rem; }
-.tape { position: absolute; top: -10px; left: calc(50% - 30px); width: 60px; height: 20px; background: rgba(255, 180, 180, 0.7); transform: rotate(-4deg); }
-.spiderOnPhotos { position: absolute; right: 0; bottom: -10px; transform: rotate(14deg); }
+  margin: 0;
 
-/* ---------- promises hub ---------- */
-.hearts { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin: 1rem 0; }
+  padding: 0.7rem;
+
+  background: #fffdf9;
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 15px 35px rgba(60, 25, 25, 0.12);
+
+  transform: rotate(-1deg);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.polaroid:hover {
+  transform:
+    rotate(0deg)
+    translateY(-5px);
+
+  box-shadow:
+    0 22px 45px rgba(60, 25, 25, 0.18);
+}
+
+.polaroid img {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  border-radius: 2px;
+}
+
+.polaroid figcaption {
+  padding:
+    0.85rem
+    0.35rem
+    0.45rem;
+
+  font-family: 'Parisienne', cursive;
+
+  font-size: 1.55rem;
+
+  color: var(--deep);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   HEART BUTTON
+   ========================================================= */
+
 .heartBtn {
-  position: relative; width: 140px; height: 130px; border: 0; background: none; cursor: pointer; padding: 0;
-  filter: drop-shadow(0 10px 10px rgba(142, 27, 44, 0.35));
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  color: var(--deep);
 }
-.heartBtn svg { width: 100%; height: 100%; }
-.heartBtn span { position: absolute; inset: 0 0 18% 0; display: grid; place-items: center; color: #fff; font-family: 'Caveat', cursive; font-size: 1.5rem; font-weight: 700; }
-.heartBtn em { position: absolute; bottom: -10px; left: 0; right: 0; font-style: normal; font-size: 1rem; color: var(--deep); }
-.heartOpened { opacity: 0.8; }
+
+.heartBtn span {
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   LOVE CARD
+   ========================================================= */
+
 .loveCard {
-  background: #fff; border: 2px solid var(--ink); border-radius: 12px; padding: 0.8rem 1.2rem;
-  font-family: 'Caveat', cursive; font-size: 1.35rem; text-align: center; transform: rotate(3deg);
-  box-shadow: 5px 5px 0 var(--red);
-}
-.loveCard b { color: var(--red); }
+  position: relative;
 
-/* ---------- promise ---------- */
+  padding:
+    clamp(1.5rem, 4vw, 2.75rem);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.82),
+      rgba(255, 240, 238, 0.86)
+    );
+
+  border: 1px solid rgba(215, 38, 43, 0.12);
+
+  box-shadow:
+    0 18px 55px rgba(142, 27, 44, 0.08);
+}
+
+.loveCard p {
+  margin: 0;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: clamp(0.95rem, 2vw, 1.08rem);
+
+  line-height: 1.9;
+
+  color: rgba(43, 27, 27, 0.82);
+}
+
+
+/* =========================================================
+   DOODLES
+   ========================================================= */
+
 .doodle {
-  position: absolute; top: 1rem; right: 1rem; max-width: 170px; background: #fff; border: 2px solid var(--ink);
-  border-radius: 18px; padding: 0.4rem 0.8rem; font-family: 'Caveat', cursive; font-size: 1.15rem;
-  transform: rotate(4deg); animation: bob 3s ease-in-out infinite; z-index: 3;
+  font-family: 'Parisienne', cursive;
+
+  color: var(--red);
+
+  font-size: 2rem;
+
+  line-height: 1;
+
+  pointer-events: none;
+
+  user-select: none;
 }
-.doodle::after { content: ''; position: absolute; bottom: -10px; left: 24px; border: 8px solid transparent; border-top-color: var(--ink); }
-.filmstrip {
-  background: #1b1212; padding: 0 14px; border-radius: 6px; transform: rotate(-3deg);
-  box-shadow: 0 16px 30px rgba(0,0,0,0.3); max-width: 380px; justify-self: center;
-}
-.filmstrip img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; }
-.sprockets { height: 22px; background: radial-gradient(circle, #fbf4e9 4px, transparent 5px) 0 50% / 20px 22px repeat-x; }
+
+
+/* =========================================================
+   NOTE
+   ========================================================= */
+
 .note {
-  position: relative; background: #fff7d6; padding: 2.4rem 1.6rem 2rem; font-size: 1.55rem; line-height: 1.45;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15); transform: rotate(2deg);
-}
-.note p { margin: 0; }
-.pin { position: absolute; top: 10px; left: calc(50% - 9px); width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ff8080, var(--red)); box-shadow: 0 3px 3px rgba(0,0,0,0.3); }
-.spiderOnNote { position: absolute; right: -16px; bottom: -26px; transform: rotate(-12deg); width: 56px; }
+  padding: 1.5rem;
 
-/* ---------- song ---------- */
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 249, 235, 0.95),
+      rgba(255, 241, 239, 0.9)
+    );
+
+  border-left: 3px solid var(--gold);
+
+  border-radius: 0 16px 16px 0;
+
+  box-shadow:
+    0 12px 30px rgba(60, 25, 25, 0.06);
+
+  font-family: 'Playfair Display', serif;
+
+  font-size: clamp(1rem, 2vw, 1.15rem);
+
+  line-height: 1.75;
+
+  font-style: italic;
+
+  color: var(--deep);
+}
+
+
+/* =========================================================
+   PLAYER
+   ========================================================= */
+
 .player {
-  background: #fff; border-radius: 20px; padding: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem;
-  box-shadow: 0 16px 34px rgba(142, 27, 44, 0.2); max-width: 340px; width: 100%; justify-self: center; box-sizing: border-box;
-}
-.cover2 { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; transition: transform 0.4s; }
-.spinning { animation: pulse 1.3s ease-in-out infinite; }
-@keyframes pulse { 50% { transform: scale(1.02); box-shadow: 0 0 0 6px rgba(215, 38, 43, 0.2); } }
-.player strong { font-size: 1.4rem; font-family: 'Playfair Display', serif; }
-.player small { color: #8a6a6a; font-size: 1.05rem; }
-.progress { height: 6px; background: #f1dede; border-radius: 3px; overflow: hidden; }
-.progress span { display: block; height: 100%; width: 8%; background: var(--red); }
-.progressRun { animation: progress 40s linear infinite; }
-@keyframes progress { to { width: 100%; } }
-.controls { display: flex; justify-content: center; align-items: center; gap: 1.2rem; }
-.controls button { border: 0; background: none; font-size: 1.4rem; cursor: pointer; min-width: 44px; min-height: 44px; color: var(--ink); }
-.controls .playBtn { width: 56px; height: 56px; border-radius: 50%; background: var(--red); color: #fff; font-size: 1.2rem; }
-.lyrics { text-align: center; }
-.lyrics p {
-  font-family: 'Caveat', cursive; font-size: clamp(1.4rem, 4vw, 1.9rem); margin: 0.3rem 0; color: var(--deep);
+  width: min(100%, 650px);
+
+  margin: 0 auto;
+
+  padding: 1.25rem;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.65);
+
+  border: 1px solid rgba(201, 162, 75, 0.2);
+
+  box-shadow:
+    0 15px 40px rgba(60, 25, 25, 0.06);
 }
 
-/* ---------- finale ---------- */
-.finale { overflow: hidden; }
+.player strong {
+  font-family: 'Playfair Display', serif;
+
+  font-size: 1.15rem;
+
+  font-weight: 600;
+
+  color: var(--deep);
+}
+
+
+/* =========================================================
+   LYRICS
+   ========================================================= */
+
+.lyrics {
+  margin-top: 1.5rem;
+
+  text-align: center;
+}
+
+.lyrics p {
+  margin: 0.65rem 0;
+
+  font-family: 'Playfair Display', serif;
+
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+
+  line-height: 1.7;
+
+  color: rgba(43, 27, 27, 0.72);
+
+  font-style: italic;
+}
+
+
+/* =========================================================
+   BIG LOVE MESSAGE
+   ========================================================= */
+
 .bigLove {
-  font-family: 'Playfair Display', serif; font-weight: 800; font-style: italic; color: var(--red); margin: 0;
-  font-size: clamp(3rem, 13vw, 6rem); letter-spacing: 0.02em;
-  text-shadow:
-    1px 1px 0 #fff6e8,
-    3px 3px 0 rgba(201, 162, 75, 0.6),
-    6px 6px 6px rgba(142, 27, 44, 0.3),
-    9px 9px 16px rgba(142, 27, 44, 0.2);
+  font-family: 'Playfair Display', serif;
+
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+
+  line-height: 1.35;
+
+  font-weight: 600;
+
+  font-style: italic;
+
+  letter-spacing: -0.02em;
+
+  color: var(--deep);
+
+  text-align: center;
+
+  max-width: 900px;
+
+  margin: 0 auto;
 }
-.heartGrid {
-  display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; width: min(92vw, 520px);
-  filter: drop-shadow(0 14px 22px rgba(142, 27, 44, 0.35));
+
+.bigLove::first-letter {
+  color: var(--red);
 }
-.heartGrid img, .heartGrid span { width: 100%; aspect-ratio: 1; }
-.heartGrid img { object-fit: cover; border-radius: 6px; border: 2px solid #fff; box-sizing: border-box; }
+
+
+/* =========================================================
+   STICKERS
+   ========================================================= */
+
 .sticker {
-  position: absolute; z-index: 3; background: #fff; border: 2px solid var(--ink); border-radius: 10px;
-  padding: 0.25rem 0.7rem; font-family: 'Gaegu', cursive; font-weight: 700; font-size: clamp(0.9rem, 2.4vw, 1.25rem);
-  color: var(--red); box-shadow: 3px 3px 0 var(--red); animation: bob 3s ease-in-out infinite;
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  color: var(--deep);
+
+  padding: 0.5rem 0.8rem;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.8);
+
+  border: 1px solid rgba(201, 162, 75, 0.35);
+
+  box-shadow:
+    0 6px 18px rgba(60, 25, 25, 0.07);
 }
-.sticker0 { top: 5rem; left: 6%; transform: rotate(-10deg); }
-.sticker1 { top: 7rem; right: 6%; transform: rotate(8deg); animation-delay: 0.5s; }
-.sticker2 { top: 50%; left: 3%; transform: rotate(-6deg); animation-delay: 1s; }
-.sticker3 { top: 55%; right: 4%; transform: rotate(10deg); animation-delay: 1.5s; }
-.sticker4 { bottom: 8rem; left: 12%; transform: rotate(4deg); animation-delay: 2s; }
-@media (max-width: 767px) {
-  .sticker0 { top: 1rem; left: 4.5rem; }
-  .sticker1 { top: 1rem; right: 4.5rem; }
-  .sticker2, .sticker3 { top: auto; bottom: 10rem; }
-  .sticker4 { display: none; }
-  .garland { width: 44px; }
+
+
+/* =========================================================
+   GRID HELPERS
+   ========================================================= */
+
+.grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(220px, 1fr)
+    );
+
+  gap: 1.5rem;
 }
+
+
+/* =========================================================
+   IMAGE HELPERS
+   ========================================================= */
+
+.image {
+  width: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+}
+
+
+/* =========================================================
+   DECORATION
+   ========================================================= */
+
+.decor {
+  position: absolute;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   FADE / MOTION
+   ========================================================= */
+
+.fadeIn {
+  animation:
+    fadeIn 0.8s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   FLOAT
+   ========================================================= */
+
+.float {
+  animation:
+    float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* =========================================================
+   HEARTBEAT
+   ========================================================= */
+
+.heartbeat {
+  animation:
+    heartbeat 1.8s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.06);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.06);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .cover {
+    padding:
+      1.5rem
+      1rem;
+  }
+
+  .coverTitle {
+    font-size: clamp(3.5rem, 18vw, 6rem);
+  }
+
+  .title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .section {
+    padding:
+      3rem
+      1rem;
+  }
+
+  .letter {
+    padding: 1.35rem;
+    border-radius: 18px;
+  }
+
+  .letterText {
+    font-size: 0.95rem;
+    line-height: 1.85;
+  }
+
+  .loveCard {
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+
+  .bigLove {
+    font-size: clamp(1.7rem, 8vw, 2.7rem);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .cover {
+    padding:
+      1rem
+      0.8rem;
+  }
+
+  .coverTitle {
+    font-size: 3.4rem;
+  }
+
+  .hint {
+    font-size: 0.7rem;
+  }
+
+  .pillBtn {
+    padding:
+      0.7rem
+      1rem;
+
+    font-size: 0.7rem;
+  }
+
+  .section {
+    padding:
+      2.5rem
+      0.8rem;
+  }
+
+  .letterText {
+    font-size: 0.9rem;
+  }
+
+  .signoff {
+    font-size: 2.2rem;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
 }
